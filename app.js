@@ -4,7 +4,8 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use('/fetchdatafromsubgraph', require('./fetchdatafromsubgraph'));
+app.use('fetchdatafromsubgraph', 
+require('./src/fetchdatafromsubgraph'));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
