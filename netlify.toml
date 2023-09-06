@@ -1,0 +1,3 @@
+[build]
+command = "node app.js"
+publish = "src"  # Adjust this to match your source code location
