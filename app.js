@@ -4,7 +4,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.use('fetchdatafromsubgraph', 
+app.use('/fetchdatafromsubgraph', 
 require('./src/fetchdatafromsubgraph'));
 
 app.listen(port, () => {
