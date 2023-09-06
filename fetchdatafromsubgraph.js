@@ -1,5 +1,6 @@
 const axios = require('axios');
-
+const express = require('express');
+const router = express.Router();
 const subgraphUrl = 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2';
 
 // Define the batch size 
@@ -73,3 +74,15 @@ fetchAllLiquidityPools()
   .catch((error) => {
     console.error('Error:', error);
   });
+
+  router.get('/', async (req, res) => {
+    try {
+      const liquidityPools = await fetchAllLiquidityPools();
+      res.json({ liquidityPools });
+    } catch (error) {
+      console.error('Error:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  
+  module.exports = router;
